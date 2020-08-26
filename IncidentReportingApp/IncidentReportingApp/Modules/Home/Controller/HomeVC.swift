@@ -25,6 +25,7 @@ class HomeVC: BaseVC {
         super.viewDidLoad()
         
         initialSetup()
+        addAccessibilityIdentifier()
     }
     
     //MARK:- @IBAction
@@ -83,6 +84,11 @@ extension HomeVC {
         } else {
             navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Cancel", style: .plain, target: self, action: #selector(rightNavBarCancelBtnTapped))
         }
+    }
+    
+    private func addAccessibilityIdentifier() {
+        self.view.accessibilityIdentifier = "homeUITest"
+        self.reportListTV.accessibilityIdentifier = "reportListTV"
     }
 }
 

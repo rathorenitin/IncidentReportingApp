@@ -37,6 +37,7 @@ class ReportIncidentVC: BaseVC {
         super.viewDidLoad()
         
         initialSetup()
+        addAccessibilityIdentifier()
     }
     
     
@@ -109,6 +110,13 @@ extension ReportIncidentVC {
         machineNameTextField.placeholder = ""
         locationTextField.placeholder = ""
         submitButton.setTitle("Submit", for: .normal)
+    }
+    
+    private func addAccessibilityIdentifier() {
+        self.view.accessibilityIdentifier = "ReportIncidentUITest"
+        self.machineNameTextField.accessibilityIdentifier = "machineNameTextField"
+        self.locationTextField.accessibilityIdentifier = "locationTextField"
+        self.descriptionTextView.accessibilityIdentifier = "descriptionTextView"
     }
 }
 // MARK: Extension for UITextField Delegate methods

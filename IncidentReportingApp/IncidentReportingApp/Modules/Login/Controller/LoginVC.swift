@@ -29,6 +29,7 @@ class LoginVC: BaseVC {
         super.viewDidLoad()
         
         initialSetup()
+        addAccessibilityIdentifier()
     }
     
     
@@ -91,6 +92,12 @@ extension LoginVC {
         userNameTextField.placeholder = "Enter username"
         passwordTextField.placeholder = "Enter password"
         submitButton.setTitle("Submit", for: .normal)
+    }
+    
+    private func addAccessibilityIdentifier() {
+        self.view.accessibilityIdentifier = "loginUITest"
+        self.userNameTextField.accessibilityIdentifier = "usernameTextField"
+        self.passwordTextField.accessibilityIdentifier = "passwordTextField"
     }
 }
 
