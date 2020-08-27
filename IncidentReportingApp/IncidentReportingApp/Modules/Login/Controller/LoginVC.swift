@@ -87,13 +87,16 @@ extension LoginVC {
      setup for text of label, textfield and button
      */
     private func setUpText() {
-        userNameLabel.text = "User Name"
-        passwordLabel.text = "Password"
-        userNameTextField.placeholder = "Enter username"
-        passwordTextField.placeholder = "Enter password"
-        submitButton.setTitle("Submit", for: .normal)
+        userNameLabel.text = AppStringConstant.username.localized
+        passwordLabel.text = AppStringConstant.password.localized
+        userNameTextField.placeholder = AppStringConstant.enterUsername.localized
+        passwordTextField.placeholder = AppStringConstant.enterPassword.localized
+        submitButton.setTitle(AppStringConstant.submit.localized, for: .normal)
     }
     
+    /*
+    setup for ui test cases
+    */
     private func addAccessibilityIdentifier() {
         self.view.accessibilityIdentifier = "loginUITest"
         self.userNameTextField.accessibilityIdentifier = "usernameTextField"
@@ -140,7 +143,7 @@ extension LoginVC {
         self.viewModel.errorHandler = { [weak self] (errorMessage) in
             DispatchQueue.main.async {
                 guard let strongSelf = self else { return }
-                strongSelf.showAlert(with: "ERROR", message: errorMessage)
+                strongSelf.showAlert(with: AppStringConstant.error.localized, message: errorMessage)
             }
         }
         

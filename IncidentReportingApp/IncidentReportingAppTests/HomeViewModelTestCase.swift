@@ -11,9 +11,13 @@ import XCTest
 
 class HomeViewModelTestCase: XCTestCase {
 
+    // MARK: Properties
+    //=================
     var viewModel: HomeViewModel!
     
     
+    //MARK:- TestCase Life Cycle
+    //==========================
     override func setUp() {
         super.setUp()
         self.viewModel = HomeViewModel()
@@ -24,6 +28,9 @@ class HomeViewModelTestCase: XCTestCase {
         self.viewModel = nil
     }
     
+    /*
+     test case for checking searching is working for valid search term
+    */
     func testForValidSearchingFunctinality() {
         
         let object1 = ReportModel(model: ReportIncidentModel(machineName: "Tata Machine", locationName: "Noida", description: "This is dummy text"))
@@ -45,6 +52,9 @@ class HomeViewModelTestCase: XCTestCase {
     }
     
     
+    /*
+     test case for checking searching is not working for invalid search term
+    */
     func testForInValidSearchingFunctinality() {
         
         let object1 = ReportModel(model: ReportIncidentModel(machineName: "Tata Machine", locationName: "Noida", description: "This is dummy text"))

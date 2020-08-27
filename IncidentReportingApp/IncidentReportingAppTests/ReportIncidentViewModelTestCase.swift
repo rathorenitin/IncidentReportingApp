@@ -11,9 +11,12 @@ import XCTest
 
 class ReportIncidentViewModelTestCase: XCTestCase {
 
+    // MARK: Properties
+    //=================
     var viewModel: ReportIncidentViewModel!
     
-    
+    //MARK:- TestCase Life Cycle
+    //==========================
     override func setUp() {
         super.setUp()
         self.viewModel = ReportIncidentViewModel()
@@ -24,6 +27,9 @@ class ReportIncidentViewModelTestCase: XCTestCase {
         self.viewModel = nil
     }
     
+    /*
+     test case for checking report incident is working with vailid report data
+    */
     func testForValidIncidentReport() {
         self.viewModel.updateMachineName(inputText: "Tata Machine")
         self.viewModel.updateLocationName(inputText: "Noida")
@@ -40,6 +46,9 @@ class ReportIncidentViewModelTestCase: XCTestCase {
         self.viewModel.submitReport()
     }
     
+    /*
+     test case for checking report incident is not working with invailid report data
+    */
     func testForInValidIncidentReport() {
         self.viewModel.updateMachineName(inputText: "Tata Machine")
         self.viewModel.updateLocationName(inputText: "")

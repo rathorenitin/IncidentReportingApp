@@ -41,10 +41,10 @@ class ReportIncidentViewModel: NSObject {
     }
     
     /*
-     report method check for vaidation of credential and provide succeess or failure according to it
+      method check for vaidation of Report request and provide succeess or failure according to it
     */
     func submitReport() {
-        let result = ValidationController.validateReportIncidentCredential(model: reportIncidentModel)
+        let result = ValidationController.validateReportIncident(model: reportIncidentModel)
         
         if result.status {
             let object = ReportModel(model: reportIncidentModel)

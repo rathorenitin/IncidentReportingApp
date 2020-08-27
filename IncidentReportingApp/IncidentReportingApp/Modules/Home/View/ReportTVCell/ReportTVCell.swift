@@ -72,7 +72,7 @@ class ReportTVCell: UITableViewCell {
         guard let object = self.reportModel else {return}
         self.machineNameLabel.text = object.machineName
         self.timeLabel.text = object.reportDate
-        self.incidentIdLabel.text = "ID: \(object.id)"
+        self.incidentIdLabel.text = "\(AppStringConstant.id.localized.uppercased()): \(object.id)"
 
     }
 }

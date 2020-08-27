@@ -10,77 +10,89 @@ import XCTest
 
 class ReportIncidentUITest: XCTestCase {
 
+    // MARK: Properties
+    //=================
     var app: XCUIApplication!
     
+    //MARK:- TestCase Life Cycle
+    //==========================
     override func setUp() {
         super.setUp()
         
         continueAfterFailure = false
+        self.app = XCUIApplication()
+    }
+    
+    override func tearDown() {
+        super.tearDown()
         
-        app = XCUIApplication()
+        self.app = nil
     }
 
+    /*
+     test case for checking adding incident report is wokring
+    */
     func testAddReporIncidentFlow()  {
-        app.launch()
+        self.app.launch()
 
         // checking login ui is visble or not
-        XCTAssertTrue(app.otherElements["loginUITest"].exists)
+        XCTAssertTrue(self.app.otherElements["loginUITest"].exists)
         
         // checking username textfield exist or not
-        XCTAssertTrue(app.textFields["usernameTextField"].exists)
+        XCTAssertTrue(self.app.textFields["usernameTextField"].exists)
         
         // checking password textfield exist or not
         XCTAssertTrue(app.secureTextFields["passwordTextField"].exists)
         
         // seeting the username on textfield
-        app.textFields["usernameTextField"].tap()
-        app.textFields["usernameTextField"].typeText("TestingUser")
+        self.app.textFields["usernameTextField"].tap()
+        self.app.textFields["usernameTextField"].typeText("TestingUser")
         
         // seeting the password on textfield
-        app.secureTextFields["passwordTextField"].tap()
-        app.secureTextFields["passwordTextField"].typeText("Qwerty@123")
+        self.app.secureTextFields["passwordTextField"].tap()
+        self.app.secureTextFields["passwordTextField"].typeText("Qwerty@123")
         
         // tapping on submit button
-        app.buttons["Submit"].tap()
+        self.app.buttons["Submit"].tap()
 
         // checking on successfully login home screen is visible or not
-        XCTAssertTrue(app.otherElements["homeUITest"].exists)
+        XCTAssertTrue(self.app.otherElements["homeUITest"].exists)
         
         
         // tapping on submit button
-        app.buttons["Report"].tap()
+        self.app.buttons["Report"].tap()
         
         // checking report incident screen open or not
-        XCTAssertTrue(app.otherElements["ReportIncidentUITest"].exists)
+        XCTAssertTrue(self.app.otherElements["ReportIncidentUITest"].exists)
         
         // checking machine name textfield exist or not
-        XCTAssertTrue(app.textFields["machineNameTextField"].exists)
+        XCTAssertTrue(self.app.textFields["machineNameTextField"].exists)
         
         // checking location textfield exist or not
-        XCTAssertTrue(app.textFields["locationTextField"].exists)
+        XCTAssertTrue(self.app.textFields["locationTextField"].exists)
         
         // checking description textview exist or not
-        XCTAssertTrue(app.textViews["descriptionTextView"].exists)
+        XCTAssertTrue(self.app.textViews["descriptionTextView"].exists)
         
         // seeting the machine name on textfield
-        app.textFields["machineNameTextField"].tap()
-        app.textFields["machineNameTextField"].typeText("Tata Machine")
+        self.app.textFields["machineNameTextField"].tap()
+        self.app.textFields["machineNameTextField"].typeText("Tata Machine")
         
         // seeting the location name on textfield
-        app.textFields["locationTextField"].tap()
-        app.textFields["locationTextField"].typeText("Noida")
+        self.app.textFields["locationTextField"].tap()
+        self.app.textFields["locationTextField"].typeText("Noida")
         
         // seeting the description  on textfield
-        app.textViews["descriptionTextView"].tap()
-        app.textViews["descriptionTextView"].typeText("This is dummy description")
+        self.app.textViews["descriptionTextView"].tap()
+        self.app.textViews["descriptionTextView"].typeText("This is dummy description")
         
         // tapping on submit button
-        app.buttons["Submit"].tap()
+        self.app.buttons["Submit"].tap()
 
         // checking on successfully adding report home screen is visible or not
-        XCTAssertTrue(app.otherElements["homeUITest"].exists)
+        XCTAssertTrue(self.app.otherElements["homeUITest"].exists)
         
-        app.terminate()
+        self.app.terminate()
     }
 
 }

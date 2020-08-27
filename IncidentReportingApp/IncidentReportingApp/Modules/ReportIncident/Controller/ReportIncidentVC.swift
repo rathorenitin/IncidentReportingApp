@@ -104,12 +104,12 @@ extension ReportIncidentVC {
      setup for text of label, textfield and button
      */
     private func setUpText() {
-        machineNameLabel.text = "Machine Name"
-        locationLabel.text = "Location Name"
-        descriptionLabel.text = "Description"
+        machineNameLabel.text = AppStringConstant.machineName.localized
+        locationLabel.text = AppStringConstant.locationName.localized
+        descriptionLabel.text = AppStringConstant.description.localized
         machineNameTextField.placeholder = ""
         locationTextField.placeholder = ""
-        submitButton.setTitle("Submit", for: .normal)
+        submitButton.setTitle(AppStringConstant.submit.localized, for: .normal)
     }
     
     private func addAccessibilityIdentifier() {
@@ -170,7 +170,7 @@ extension ReportIncidentVC {
         self.viewModel.errorHandler = { [weak self] (errorMessage) in
             DispatchQueue.main.async {
                 guard let strongSelf = self else { return }
-                strongSelf.showAlert(with: "ERROR", message: errorMessage)
+                strongSelf.showAlert(with: AppStringConstant.error.localized, message: errorMessage)
             }
         }
         

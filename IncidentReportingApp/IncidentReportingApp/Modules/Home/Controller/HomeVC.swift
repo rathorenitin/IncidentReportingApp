@@ -73,16 +73,16 @@ extension HomeVC {
      */
     private func setupNavBar() {
         searchBar.delegate = self
-        searchBar.placeholder = "Search Report..."
+        searchBar.placeholder = AppStringConstant.searchReport.localized
         navigationItem.titleView = searchBar
         setupNavigationBarRightBuuton(true)
     }
     
     private func setupNavigationBarRightBuuton(_ showReportButton: Bool) {
         if showReportButton {
-            navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Report", style: .plain, target: self, action: #selector(rightNavBarReportBtnTapped))
+            navigationItem.rightBarButtonItem = UIBarButtonItem(title: AppStringConstant.report.localized, style: .plain, target: self, action: #selector(rightNavBarReportBtnTapped))
         } else {
-            navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Cancel", style: .plain, target: self, action: #selector(rightNavBarCancelBtnTapped))
+            navigationItem.rightBarButtonItem = UIBarButtonItem(title: AppStringConstant.cancel.localized, style: .plain, target: self, action: #selector(rightNavBarCancelBtnTapped))
         }
     }
     
@@ -140,7 +140,7 @@ extension HomeVC {
         self.viewModel.errorHandler = { [weak self] (errorMessage) in
             DispatchQueue.main.async {
                 guard let strongSelf = self else { return }
-                strongSelf.showAlert(with: "ERROR", message: errorMessage)
+                strongSelf.showAlert(with: AppStringConstant.error.localized, message: errorMessage)
             }
         }
         
